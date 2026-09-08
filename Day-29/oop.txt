@@ -1,0 +1,528 @@
+OBJECT-ORIENTED PROGRAMMING (OOP)
+=================================
+
+1. WHY DO WE NEED TO SWITCH FROM PROCEDURAL TO OBJECT-ORIENTED PROGRAMMING?
+----------------------------------------------------------------------------
+
+Procedural Programming:
+Procedural programming organizes a program mainly around functions and
+procedures. Data and functions that operate on the data are generally separate.
+
+Example:
+
+createUser()
+loginUser()
+uploadPhoto()
+likePhoto()
+commentPhoto()
+
+As applications become larger, managing data and functions becomes difficult.
+
+Problems with Procedural Programming:
+- Difficult to maintain
+- Less data security
+- Code duplication
+- Difficult to manage large projects
+- Poor representation of real-world entities
+- Difficult to reuse and extend code
+
+OOP organizes programs around objects.
+
+Example:
+
+Instagram
+   |
+   +-- User
+   +-- Post
+   +-- Story
+   +-- Comment
+
+Each object contains its own data and behavior.
+
+In short:
+
+Procedural Programming -> Focuses mainly on what the program does.
+Object-Oriented Programming -> Focuses on objects and their behavior.
+
+OOP is useful for large applications because it provides:
+- Better organization
+- Code reusability
+- Data security
+- Easy maintenance
+- Flexibility
+- Easy extension of applications
+
+
+2. FEATURES OF OBJECT-ORIENTED PROGRAMMING
+------------------------------------------
+
+The four major features of OOP are:
+
+1. Encapsulation
+2. Inheritance
+3. Polymorphism
+4. Abstraction
+
+Other important characteristics include:
+- Classes
+- Objects
+- Reusability
+- Modularity
+- Data security
+
+
+3. CLASS
+--------
+
+Definition:
+
+A class is a blueprint or template that defines the properties (data) and behaviors (methods) of objects.
+
+Example: Instagram User
+
+Class: User
+
+Properties:
+- username
+- email
+- followers
+- following
+
+Methods:
+- login()
+- postPhoto()
+- follow()
+- logout()
+
+The class is only a blueprint. It does not represent one particular user.
+
+
+
+4. OBJECT
+---------
+
+Definition:
+
+An object is an instance of a class.
+
+Example:
+
+Class: User
+
+Objects:
+- User1 -> username = "Rahul"
+- User2 -> username = "Priya"
+- User3 -> username = "Arjun"
+
+All three are objects of the User class.
+
+
+Therefore:
+
+Class = Blueprint
+Object = Actual thing created from the blueprint
+
+
+5. ENCAPSULATION - INSTAGRAM EXAMPLE
+------------------------------------
+
+Definition:
+
+Encapsulation is the process of wrapping data and methods together in a
+single unit and controlling access to the internal data.
+
+Imagine an Instagram User object:
+
+User
+-------------------
+private password
+private email
+
+login()
+changePassword()
+uploadPhoto()
+logout()
+
+A user should not directly modify the internal password.
+
+Instead, the application provides a controlled method:
+
+changePassword(oldPassword, newPassword)
+
+Example:
+
+User:
+username = "Rahul"
+password = "12345"
+
+Instead of:
+
+user.password = "abcdef"
+
+We use:
+
+user.changePassword("12345", "abcdef")
+
+The method can verify the old password before changing it.
+
+Main benefit:
+- Data security
+- Controlled access
+- Protection of internal data
+
+
+6. INHERITANCE - LINKEDIN EXAMPLE
+---------------------------------
+
+Definition:
+
+Inheritance is a mechanism in which a child class acquires the properties
+and behaviors of a parent class.
+
+Example:
+
+                 User
+                  |
+          -----------------
+          |               |
+       Employee        Recruiter
+
+Parent Class:
+
+User
+----------------
+name
+email
+login()
+logout()
+
+Child Class:
+
+Employee
+----------------
+jobTitle
+company
+applyForJob()
+
+Employee can use the properties and methods of User.
+
+Another Child Class:
+
+Recruiter
+----------------
+company
+postJob()
+searchCandidates()
+
+The Employee and Recruiter classes do not need to rewrite:
+
+name
+email
+login()
+logout()
+
+because these features can be inherited from User.
+
+Main benefits:
+- Code reusability
+- Less code duplication
+- Easy maintenance
+- Establishes relationships between classes
+
+
+7. POLYMORPHISM - YOUTUBE EXAMPLE
+---------------------------------
+
+Definition:
+
+Polymorphism means "many forms."
+
+It allows the same method or interface to behave differently depending
+on the object.
+
+Example:
+
+              Content
+                 |
+        ---------------------
+        |         |         |
+      Video     Short    LiveStream
+
+All types can have:
+
+play()
+
+But their behavior can be different.
+
+Video.play()
+-> Plays a normal YouTube video
+
+Short.play()
+-> Plays a short-form video
+
+LiveStream.play()
+-> Plays a live stream
+
+The user can simply call:
+
+content.play()
+
+without needing to know the exact type of content.
+
+Another simple example:
+
+Animal
+  |
+  +-- Dog -> sound() -> Bark
+  +-- Cat -> sound() -> Meow
+
+The method is the same:
+
+sound()
+
+But its behavior changes according to the object.
+
+Main benefit:
+- Flexibility
+- Easy extension
+- Same interface with different behavior
+
+
+8. ABSTRACTION - PHONE EXAMPLE
+------------------------------
+
+Definition:
+
+Abstraction is the process of hiding complex implementation details
+and exposing only the necessary functionality to the user.
+
+Consider a smartphone.
+
+When making a phone call:
+
+Open Phone App
+       |
+Select Contact
+       |
+Press Call
+
+The user does not need to know:
+- How the cellular network connects the call
+- How signals are encoded
+- How the phone communicates with the tower
+- How voice data is transmitted
+- How the network routes the call
+
+The user only sees the necessary functionality:
+
+call()
+
+The complex implementation is hidden.
+
+Another example:
+
+Car:
+Press brake -> Car slows down
+
+The driver does not need to understand the complete braking mechanism.
+
+Main benefit:
+- Reduces complexity
+- Makes systems easier to use
+- Hides unnecessary implementation details
+
+
+9. QUICK COMPARISON
+-------------------
+
+Class:
+Meaning -> Blueprint for objects
+Example -> Instagram User class
+
+Object:
+Meaning -> Instance of a class
+Example -> A particular Instagram user
+
+Encapsulation:
+Meaning -> Protect and bundle data and methods
+Example -> Instagram password protection
+
+Inheritance:
+Meaning -> Child class gets features from parent class
+Example -> LinkedIn Employee inherits User
+
+Polymorphism:
+Meaning -> Same interface with different behavior
+Example -> YouTube play()
+
+Abstraction:
+Meaning -> Hide complexity and show essential features
+Example -> Phone call()
+
+
+10. EASY WAY TO REMEMBER
+------------------------
+
+Encapsulation -> PROTECT
+Inheritance   -> REUSE
+Polymorphism  -> MANY FORMS
+Abstraction   -> HIDE COMPLEXITY
+
+
+FINAL SUMMARY
+-------------
+
+The main reason for moving from procedural programming to object-oriented
+programming is that OOP makes large software easier to organize, reuse,
+maintain, extend, and secure.
+
+OOP represents a program using objects that contain both data and behavior.
+
+The four main pillars of OOP are:
+
+1. Encapsulation -> Protect data
+2. Inheritance   -> Reuse code
+3. Polymorphism  -> Same interface, different behavior
+4. Abstraction   -> Hide implementation complexity
+
+
+Attributes:
+Attributes are variables or properties inside a class that store the characteristics or state of an object.
+Types of Attributes in OOP
+
+There are mainly two common types of attributes:
+1. Instance Attributes:
+Instance attributes belong to a specific object. Each object can have different values.
+2. Class Attributes:
+Class attributes belong to the class itself and are shared by all objects of that class.
+
+
+
+Methods:
+A method is a function defined inside a class that describes the behavior or action of an object.
+Types of Methods in OOP
+
+The exact categories depend on the programming language, but commonly you will see these types:
+1. Instance Method
+Works with object (instance) data.
+Takes self as the first parameter.
+Can access and modify instance variables.
+
+2. Class Method
+Works with class-level data.
+Uses the @classmethod decorator.
+Takes cls as the first parameter.
+Can access or modify class variables.
+
+3. Static Method
+Does not access instance (self) or class (cls) data.
+Uses the @staticmethod decorator.
+Acts like a normal function inside the class.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
